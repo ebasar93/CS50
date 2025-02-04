@@ -1,0 +1,8 @@
+{
+    "gitdoc.enabled": true,
+    "files.associations": {
+        "ctype.h": "c",
+        "am": "c",
+        "cmath": "c"
+    }
+}

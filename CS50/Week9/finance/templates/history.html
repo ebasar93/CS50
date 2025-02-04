@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for birey in trans %}
+            <tr>
+                <td>{{ birey["name"] }}</td>
+                <td>{{ birey["number_of_shares"] }}</td>
+                <td>${{ birey["price"] }}</td>
+                <td>{{ birey["transacted"] }}</td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+{% endblock %}

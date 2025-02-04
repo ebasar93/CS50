@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-start">Symbol</th>
+                <th class="text-start">Name</th>
+                <th class="text-end">Shares</th>
+                <th class="text-end">Price</th>
+                <th class="text-end">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for account in accounts %}
+            <tr>
+                <td>{{ account["symbol"] }}</td>
+                <td> {{ account["name"] }}</td>
+                <td>{{ account["number_of_shares"] }}</td>
+                <td>${{  account["price"] }}</td>
+                {%set total = account["number_of_shares"] * account["price"] %}
+                <td >$ {{ total | round(2) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4" NAME="CASH">Cash</td>
+                <td >${{ cash }}</td>
+            </tr>
+            <tr>
+                <td class="border-0 fw-bold text-end" colspan="4" NAME="TOTAL">Total</td>
+                <td >${{ total | round(2) }}</td>
+            </tr>
+
+        </tfoot>
+    </table>
+{% endblock %}
